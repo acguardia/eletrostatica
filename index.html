@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<!--
+	Seguencia didática elaborada para a Somativa 1 da disciplina de Física Básica - Eletricidade e Magnetísmo
+	Aluno: Antonio Cesar Guardia
+	O Trabalho foi criado em HTML e CSS.
+-->
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Eletrostática: Dos Raios ao Campo Elétrico</title>
+
+<style>
+
+:root{
+ --azul:#0D47A1;
+ --azul-claro:#E3F2FD;
+ --amarelo:#FFD54F;
+ --verde:#2E7D32;
+ --laranja:#F57C00;
+ --cinza:#F5F5F5;
+ --escuro:#263238;
+}
+
+*{
+ margin:0;
+ padding:0;
+ box-sizing:border-box;
+ font-family:'Segoe UI',sans-serif;
+}
+
+body{
+ background:#f4f7fb;
+ color:#333;
+ line-height:1.7;
+}
+
+header{
+ background:linear-gradient(135deg,#0D47A1,#42A5F5);
+ color:white;
+ padding:70px 20px;
+ text-align:center;
+}
+
+header h1{
+ font-size:3rem;
+}
+
+header p{
+ margin-top:15px;
+ font-size:1.2rem;
+ max-width:900px;
+ margin-inline:auto;
+}
+
+.container{
+ max-width:1200px;
+ margin:auto;
+ padding:30px;
+}
+
+.card{
+ background:white;
+ border-radius:15px;
+ padding:30px;
+ margin-bottom:25px;
+ box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+h2{
+ color:var(--azul);
+ margin-bottom:20px;
+}
+
+h3{
+ color:var(--laranja);
+ margin:15px 0;
+}
+
+.badge{
+ display:inline-block;
+ background:var(--verde);
+ color:white;
+ padding:6px 15px;
+ border-radius:20px;
+ margin-bottom:10px;
+ font-size:.9rem;
+}
+
+.timeline{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+ gap:15px;
+ margin-top:25px;
+}
+
+.box{
+ background:#E3F2FD;
+ padding:20px;
+ border-radius:10px;
+ text-align:center;
+ border-top:6px solid var(--azul);
+}
+
+.mapa{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+ gap:15px;
+ margin-top:25px;
+}
+
+.no{
+ background:#f7f9fc;
+ border-left:6px solid #1976D2;
+ padding:20px;
+ border-radius:10px;
+}
+
+.central{
+ background:#1565C0;
+ color:white;
+}
+
+.fluxo{
+ display:flex;
+ flex-wrap:wrap;
+ gap:12px;
+ justify-content:center;
+ align-items:center;
+ margin-top:20px;
+}
+
+.etapa{
+ background:#FFF3E0;
+ border:2px solid #FFB74D;
+ border-radius:10px;
+ padding:15px;
+ min-width:180px;
+ text-align:center;
+ font-weight:600;
+}
+
+.seta{
+ font-size:28px;
+ color:#F57C00;
+}
+
+.formula{
+ text-align:center;
+ font-size:30px;
+ color:#0D47A1;
+ font-weight:bold;
+ margin:25px 0;
+}
+
+.raio{
+ text-align:center;
+ font-size:140px;
+}
+
+.esquema{
+ background:#f8fbff;
+ border:2px dashed #90CAF9;
+ border-radius:10px;
+ padding:20px;
+ margin-top:20px;
+ white-space:pre;
+ font-family:monospace;
+ overflow:auto;
+}
+
+.passo{
+ background:#f5f5f5;
+ padding:18px;
+ border-radius:10px;
+ margin-bottom:12px;
+}
+
+.destacado{
+ background:#FFF8E1;
+ border-left:6px solid #FFC107;
+ padding:20px;
+ border-radius:10px;
+}
+
+.quiz{
+ background:#E8F5E9;
+ padding:25px;
+ border-radius:12px;
+}
+
+footer{
+ background:#263238;
+ color:white;
+ text-align:center;
+ padding:40px;
+ margin-top:40px;
+}
+
+ul{
+ padding-left:25px;
+}
+
+</style>
+</head>
+<body>
+
+<header>
+
+<h1>⚡ ELETROSTÁTICA</h1>
+
+<p>
+Uma viagem pelos conceitos de carga elétrica, força elétrica,
+campo elétrico, Lei de Gauss e potencial elétrico através da
+investigação de um fenômeno presente na natureza: os raios.
+</p>
+
+</header>
+
+<div class="container">
+
+<section class="card">
+
+<span class="badge">Sequência Didática</span>
+
+<h2>Objetivos de Aprendizagem</h2>
+
+<ul>
+<li>Compreender a natureza das cargas elétricas;</li>
+<li>Relacionar força elétrica e interação entre cargas;</li>
+<li>Interpretar o conceito de campo elétrico;</li>
+<li>Entender a Lei de Gauss de forma intuitiva;</li>
+<li>Aplicar o conceito de potencial elétrico;</li>
+<li>Analisar fenômenos reais presentes no cotidiano.</li>
+</ul>
+
+</section>
+
+<section class="card">
+
+<h2>Situação-Problema Geradora</h2>
+
+<div class="raio">⚡</div>
+
+<div class="destacado">
+
+<h3>Desafio Inicial</h3>
+
+<p>
+
+Durante uma tempestade, uma descarga elétrica percorre quilômetros
+entre nuvem e solo em frações de segundo.
+
+Como isso acontece?
+
+Por que alguns lugares são mais propensos a serem atingidos?
+
+O que existe entre a nuvem e a Terra para permitir essa descarga?
+
+</p>
+
+</div>
+
+</section>
+
+<section class="card">
+
+<h2>Mapa Mental da Unidade</h2>
+
+<div class="mapa">
+
+<div class="no">
+<strong>Carga Elétrica</strong><br>
+Positiva e negativa
+</div>
+
+<div class="no">
+<strong>Força Elétrica</strong><br>
+Atração e repulsão
+</div>
+
+<div class="no central">
+ELETROSTÁTICA
+</div>
+
+<div class="no">
+<strong>Campo Elétrico</strong><br>
+Região de influência
+</div>
+
+<div class="no">
+<strong>Lei de Gauss</strong><br>
+Fluxo elétrico
+</div>
+
+<div class="no">
+<strong>Potencial Elétrico</strong><br>
+Energia por carga
+</div>
+
+</div>
+
+</section>
+
+<section class="card">
+
+<h2>Aula 1 • Carga Elétrica e Força Elétrica</h2>
+
+<p>
+
+Toda matéria é constituída por partículas carregadas.
+Existem dois tipos de carga:
+
+</p>
+
+<h3>➕ Positiva</h3>
+<h3>➖ Negativa</h3>
+
+<div class="fluxo">
+
+<div class="etapa">
+Cargas Iguais
+<br><br>
+Repulsão
+</div>
+
+<div class="seta">⇄</div>
+
+<div class="etapa">
+Cargas Diferentes
+<br><br>
+Atração
+</div>
+
+</div>
+
+<div class="formula">
+F = k · q₁ · q₂ / d²
+</div>
+
+<p>
+
+A Lei de Coulomb mostra que a força elétrica aumenta com a carga
+e diminui com a distância.
+
+</p>
+
+</section>
+
+<section class="card">
+
+<h2>Aula 2 • Campo Elétrico</h2>
+
+<p>
+
+Para explicar como uma carga influencia outra sem contato
+direto, a Física utiliza a ideia de campo elétrico.
+
+</p>
+
+<div class="formula">
+E = F / q
+</div>
+
+<div class="esquema">
+
+      ↑
+   ↖  |  ↗
+← ←  (+) → →
+   ↙  |  ↘
+      ↓
+
+ Linhas saem da carga positiva
+
+
+      ↓
+   ↘  |  ↙
+→ →  (-) ← ←
+   ↗  |  ↖
+      ↑
+
+ Linhas entram na carga negativa
+
+</div>
+
+</section>
+
+<section class="card">
+
+<h2>Aula 3 • Lei de Gauss</h2>
+
+<p>
+
+A Lei de Gauss permite calcular campos elétricos por meio do
+conceito de fluxo.
+
+</p>
+
+<div class="formula">
+Φ = E · A
+</div>
+
+<p>
+
+Imagine uma lâmpada colocada dentro de uma bola transparente.
+
+Quanto maior a quantidade de linhas atravessando a superfície,
+maior será o fluxo.
+
+</p>
+
+<div class="esquema">
+
+        ↗ ↑ ↖
+
+      ↗       ↖
+
+   →      ●      ←
+
+      ↘       ↙
+
+        ↘ ↓ ↙
+
+ Superfície Gaussiana
+
+</div>
+
+</section>
+
+<section class="card">
+
+<h2>Aula 4 • Potencial Elétrico</h2>
+
+<p>
+
+O potencial elétrico mede a energia elétrica disponível por unidade
+de carga.
+
+</p>
+
+<div class="formula">
+V = U / q
+</div>
+
+<p>
+
+Uma analogia útil é pensar numa queda d'água:
+
+Quanto maior a altura da água, maior a energia disponível.
+
+O potencial elétrico funciona de maneira semelhante.
+
+</p>
+
+</section>
+
+<section class="card">
+
+<h2>Fluxograma Conceitual</h2>
+
+<div class="fluxo">
+
+<div class="etapa">Carga Elétrica</div>
+
+<div class="seta">➡</div>
+
+<div class="etapa">Força Elétrica</div>
+
+<div class="seta">➡</div>
+
+<div class="etapa">Campo Elétrico</div>
+
+<div class="seta">➡</div>
+
+<div class="etapa">Lei de Gauss</div>
+
+<div class="seta">➡</div>
+
+<div class="etapa">Potencial Elétrico</div>
+
+<div class="seta">➡</div>
+
+<div class="etapa">Descarga Elétrica</div>
+
+</div>
+
+</section>
+
+<section class="card">
+
+<h2>Resolução de Problema Real</h2>
+
+<h3>Proteção contra Raios</h3>
+
+<p>
+
+Uma carga de prova de 4×10⁻⁶ C sofre uma força elétrica de 0,12 N.
+
+Determine o campo elétrico.
+
+</p>
+
+<div class="passo">
+Passo 1: Identificar os dados
+<br>
+F = 0,12 N
+<br>
+q = 4 × 10⁻⁶ C
+</div>
+
+<div class="passo">
+Passo 2: Aplicar a definição de campo elétrico
+</div>
+
+<div class="formula">
+E = F/q
+</div>
+
+<div class="passo">
+E = 0,12 ÷ (4×10⁻⁶)
+</div>
+
+<div class="passo">
+E = 30.000 N/C
+</div>
+
+<div class="passo">
+✅ Resposta:
+<br><br>
+E = 3 × 10⁴ N/C
+</div>
+
+<p>
+
+Esse valor representa a intensidade do campo elétrico presente
+na região analisada.
+
+</p>
+
+</section>
+
+<section class="card">
+
+<h2>Desafio Investigativo</h2>
+
+<div class="quiz">
+
+<h3>Você consegue explicar?</h3>
+
+<ol>
+
+<li>Por que o cabelo arrepia próximo a um gerador eletrostático?</li>
+
+<li>Por que um para-raios é instalado nas partes mais altas de um prédio?</li>
+
+<li>Como o conceito de potencial elétrico ajuda a explicar os raios?</li>
+
+<li>Onde aparece a Lei de Gauss nesse fenômeno?</li>
+
+</ol>
+
+</div>
+
+</section>
+
+<section class="card">
+
+<!-- -->
+
+<!-- 12. PROFESSOR -->
+<section id="professor" class="shell-section" aria-labelledby="t-prof">
+<div class="chapter-kicker">Para o professor</div>
+<h2 id="t-prof" class="chapter-title">Sequência didática</h2>
+<details class="teacher card panel p-6 mt-3">
+<summary>Abrir sequência didática (recolhível)</summary>
+<div class="stack gap-3 mt-3" style="font-size:1.05rem;">
+<p><strong>Objetivos:</strong></p>
+<ol style="padding-left:22px;">
+<li>Compreender o modelo de carga elétrica por transferência de elétrons.</li>
+<li>Identificar a eletrização por atrito, contato e indução.</li>
+<li>Explicar a polarização em corpos neutros.</li>
+<li>Aplicar a Lei de Coulomb quantitativamente.</li>
+<li>Interpretar fenômenos do cotidiano.</li>
+</ol>
+<p><strong>Momentos de aula (55 min):</strong></p>
+<ul style="padding-left:22px;">
+<li>Sensibilização com o experimento do balão + levantamento de hipóteses (10 min).</li>
+<li>Conceituação guiada pelos capítulos 2 a 5 (20 min).</li>
+<li>Resolução guiada do capítulo 7 (15 min).</li>
+<li>Quiz + desafio domiciliar (10 min).</li>
+</ul>
+<p><strong>Materiais:</strong> balões, lã ou suéter, uma parede, papel picado, caneta plástica.</p>
+<p><strong>Avaliação formativa:</strong> quiz interativo, desafio e registro das hipóteses iniciais.</p>
+<p><strong>Alinhamento:</strong> BNCC — Competência Geral 2 (pensamento científico, crítico e criativo) e habilidades EM13CNT de Ciências da Natureza.</p>
+<p><strong>Nota de linguagem:</strong> analogias do cotidiano, vocabulário técnico sempre definido e diagramas de apoio à leitura visual.</p>
+</div>
+</details>
+</section>
+
+<h2>Avaliação</h2>
+
+<div class="timeline">
+
+<div class="box">
+Mapa Mental
+</div>
+
+<div class="box">
+Discussão da Situação-Problema
+</div>
+
+<div class="box">
+Exercícios
+</div>
+
+<div class="box">
+Desafio Final
+</div>
+
+<div class="box">
+Apresentação em Grupo
+</div>
+
+</div>
+
+</section>
+
+</div>
+
+<footer>
+
+<h2>⚡ Do átomo ao raio: tudo está conectado ⚡</h2>
+
+<p>Seguencia didática elaborada para a Somativa 1 da disciplina de Física Básica - Eletricidade e Magnetísmo.</p>
+<p>Aluno: Antonio Cesar Guardia.</p>
+<p>O Trabalho foi criado em HTML e CSS.</p>
+
+</footer>
+
+</body>
+</html>
